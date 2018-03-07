@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\PassCode.cs" />
      <Compile Include="Assets\Scripts\Programs.cs" />
      <Compile Include="Assets\Scripts\StartMenu.cs" />
  <Reference Include="UnityEngine.UI">

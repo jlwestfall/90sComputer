@@ -4,28 +4,22 @@ using UnityEngine;
 
 public class Programs : MonoBehaviour
 {
-    bool active;
 
-    public GameObject program;
-	public GameObject[] programWindows;
+    public GameObject[] program;
+    public GameObject[] programWindows;
 
-    void Start()
+
+    public void OpenProgram(int index)
     {
-		program = GameManager.gM.program;
+        programWindows[index].SetActive(true);
+        program[index].SetActive(true);
     }
 
-    void Update()
+    public void CloseProgram(int index)
     {
+      program[index].SetActive(false);
+      programWindows[index].SetActive(false);
+
     }
 
-    public void ProgramButtonOn()
-    {
-		program.SetActive(true);
-    }
-
-	public void ProgramWindowOpen()
-	{
-		programWindows[0].SetActive(true);
-	}
-   
 }
