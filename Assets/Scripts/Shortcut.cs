@@ -16,6 +16,7 @@ public class Shortcut : MonoBehaviour
 {
     #region Public Variables
     public GameObject linkedProgram;
+    public string appName;
 	#endregion
 	
 	#region Private Variables
@@ -33,7 +34,9 @@ public class Shortcut : MonoBehaviour
 	#region Custom Methods
 	public void Launch()
     {
-        Instantiate(linkedProgram,Vector3.zero, linkedProgram.transform.rotation, GameManager.gM.pManager.programsParent.transform);
+        GameObject temp = Instantiate(linkedProgram, GameManager.gM.pManager.programsParent.transform);
+        temp.name = appName;
+        temp.GetComponent<Program>().SetTaskbarButton(GameManager.gM.pManager.taskbar.CreateTaskbarButton(appName));
     }
 	#endregion
 }

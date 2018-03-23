@@ -10,7 +10,7 @@ public class Program : MonoBehaviour
     #region Private Variables
     GameObject taskbarButton;
     bool handled = false;
-    Vector2 mouseOffset = Vector2.zero;
+    Vector2 mouseOffset = new Vector3(0.000f, 0.000f, 0.000f);
     #endregion
 
     #region Enumerations
@@ -22,7 +22,15 @@ public class Program : MonoBehaviour
     {
         if(handled)
         {
-            transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x + mouseOffset.x, Input.mousePosition.y + mouseOffset.y, Vector3.Distance(Camera.main.transform.position, GameManager.gM.pManager.programsParent.transform.position)));
+            Vector3 newPos = Camera.main.ScreenToWorldPoint(
+                new Vector3(
+                    Input.mousePosition.x + mouseOffset.x,  //x
+                Input.mousePosition.y + mouseOffset.y,      //y
+                Vector3.Distance(Camera.main.transform.position, GameManager.gM.pManager.programsParent.transform.position) //z
+                ));
+
+            transform.position = newPos;
+            //transform.position = 
         }
     }
     #endregion
@@ -45,6 +53,15 @@ public class Program : MonoBehaviour
             mouseOffset = offset;
         }
 
+    }
+    public void SetTaskbarButton(GameObject button)
+    {
+        taskbarButton = button;
+    }
+    public void ShutdownProgram()
+    {
+        GameManager.gM.pManager.taskbar.DestroyTaskbarButton(taskbarButton);
+        Destroy(this.gameObject);
     }
     #endregion
 }

@@ -677,9 +677,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseProgram
-        m_Mode: 3
+      - m_Target: {fileID: 114902213808808078}
+        m_MethodName: ShutdownProgram
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -938,7 +938,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 25
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1043,8 +1043,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114883208992588936}
   m_HandleRect: {fileID: 224491442574971734}
   m_Direction: 2
-  m_Value: 0.0020148174
-  m_Size: 0.61341625
+  m_Value: 0.002014818
+  m_Size: 0.6134163
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
