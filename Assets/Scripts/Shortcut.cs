@@ -37,6 +37,7 @@ public class Shortcut : MonoBehaviour
         GameObject temp = Instantiate(linkedProgram, GameManager.gM.pManager.programsParent.transform);
         temp.name = appName;
         temp.GetComponent<Program>().SetTaskbarButton(GameManager.gM.pManager.taskbar.CreateTaskbarButton(appName));
+        GameManager.gM.pManager.AddToProgramList(temp.GetComponent<Program>());
     }
 	#endregion
 }

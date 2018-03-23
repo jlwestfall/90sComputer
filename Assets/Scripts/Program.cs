@@ -61,6 +61,7 @@ public class Program : MonoBehaviour
     public void ShutdownProgram()
     {
         GameManager.gM.pManager.taskbar.DestroyTaskbarButton(taskbarButton);
+        GameManager.gM.pManager.RemoveFromProgramList(this);
         Destroy(this.gameObject);
     }
     #endregion

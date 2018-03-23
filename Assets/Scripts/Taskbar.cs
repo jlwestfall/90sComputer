@@ -26,6 +26,7 @@ public class Taskbar : MonoBehaviour
     {
         taskButtons = new List<GameObject>();
         originalWidth = TaskbarButtonPrefab.GetComponent<RectTransform>().rect.width;
+        taskWidth = originalWidth;
     }
     #endregion
 
@@ -33,12 +34,12 @@ public class Taskbar : MonoBehaviour
     public GameObject CreateTaskbarButton(string buttonName)
     {
         GameObject button = Instantiate(TaskbarButtonPrefab, TaskbarArea.transform);
+        buttonCount++;
         button.GetComponentInChildren<Text>().text = buttonName;
         RectTransform rect = button.GetComponent<RectTransform>();
 
         taskButtons.Add(button);
-
-        if (buttonCount > 5)
+        if (buttonCount > Mathf.FloorToInt(Screen.width / taskWidth) && buttonCount != 0)
         {
             taskWidth = (TaskbarArea.GetComponent<RectTransform>().rect.width - (3 * buttonCount)) / taskButtons.Count;
             //Debug.Log(taskWidth + " | " + taskButtons.Count);
@@ -50,7 +51,9 @@ public class Taskbar : MonoBehaviour
         }
 
         ResizeTaskbar(taskWidth, rect.rect.height);
-        buttonCount++;
+
+        Debug.Log("Able to fit: " + Mathf.FloorToInt(Screen.width / taskWidth)+2 + " | There are: " + buttonCount);
+
 
         return button;
     }
@@ -82,19 +85,18 @@ public class Taskbar : MonoBehaviour
         Destroy(button);
         buttonCount--;
 
-        if (buttonCount > 5)
-        {
-            taskWidth = (TaskbarArea.GetComponent<RectTransform>().rect.width - (3 * buttonCount)) / taskButtons.Count;
-            //Debug.Log(taskWidth + " | " + taskButtons.Count);
-        }
-        else
-        {
-            taskWidth = originalWidth;
-
-        }
-
         if (buttonCount > 0)
         {
+            if (buttonCount > Mathf.FloorToInt(Screen.width / taskWidth) && buttonCount != 0)
+            {
+                taskWidth = (TaskbarArea.GetComponent<RectTransform>().rect.width - (3 * buttonCount)) / taskButtons.Count;
+                //Debug.Log(taskWidth + " | " + taskButtons.Count);
+            }
+            else
+            {
+                taskWidth = originalWidth;
+
+            }
             ResizeTaskbar(taskWidth, taskButtons[0].GetComponent<RectTransform>().rect.height);
         }
     }
