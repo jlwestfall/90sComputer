@@ -9,9 +9,12 @@ public class GameManager : MonoBehaviour
 	[Header("Start Menu")]
 	public GameObject startPanel;
 
-	[Header("Program")]
-	public GameObject program;
+	[Header("Program Manager")]
+	public ProgramManager pManager;
+    
 
+    [HideInInspector]
+    public Program lastProgram;
 	void Awake()
 	{
 		if(!gM)
@@ -19,4 +22,5 @@ public class GameManager : MonoBehaviour
 		else
 			Destroy(this.gameObject);
 	}
+
 }
