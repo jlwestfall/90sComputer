@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PrestonDev.unity
+    path: Assets/Scenes/Login Screen.unity
+    guid: 79de4b083df08a84da9098b4cdd2b6e6
+  - enabled: 1
+    path: Assets/Scenes/Desktop.unity
     guid: 8072a2fc6ae2b214eb4dea190294b6db

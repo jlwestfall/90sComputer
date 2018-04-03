@@ -15,10 +15,13 @@ public class StartMenu : MonoBehaviour
 
 	void Update()
 	{
-		if(active)
-			startMenu.SetActive(true);
-		else
-			startMenu.SetActive(false);
+        if (startMenu)
+        {
+            if (active)
+                startMenu.SetActive(true);
+            else
+                startMenu.SetActive(false);
+        }
 	}
 
 	public void StartButtonOn()
