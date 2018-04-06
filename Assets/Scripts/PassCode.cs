@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class PassCode : MonoBehaviour
 {
-	public Text textInput;
-	string virusCode;
+    public Text textInput;
+    string virusCode;
 
-	public GameObject virusPanel;
+    public GameObject virusPanel;
 
 
     // Use this for initialization
@@ -20,11 +20,11 @@ public class PassCode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		virusCode = textInput.text;
+        virusCode = textInput.text;
 
-		if (virusCode == "0000")
-		{	
-			virusPanel.SetActive(true);
-		}
+        if (virusCode == "0000")
+        {
+            virusPanel.SetActive(true);
+        }
     }
 }
